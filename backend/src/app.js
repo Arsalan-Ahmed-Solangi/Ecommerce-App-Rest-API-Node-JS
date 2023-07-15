@@ -14,8 +14,18 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+
+//****Registe Routes******//
+const authRoutes = require("./routes/auth");
+
+
+
 //***Database***//
 connectDB();
+
+//****Set Routes******//
+
+app.use("/api/auth",authRoutes);
 
 
 //*****Listen******//
